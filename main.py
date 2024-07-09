@@ -1,6 +1,9 @@
 import discord
 from discord.ext import commands
 from modelRunner import get_class
+import json
+
+config = json.dumps(open("config.json").read())
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -26,4 +29,4 @@ async def check(ctx):
         await ctx.send("You forgot to upload the image :(")
 
 
-bot.run("MTExMzQyMTY0MzE1OTcwNzY1OA.GSKEQn.SO3guEjso_btfZIQMe4DGP3e2aFVUXWmDT-oxY")
+bot.run(config['token'])
